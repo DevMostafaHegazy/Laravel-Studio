@@ -16,7 +16,9 @@ extensions/*/lib/
 extensions/*/dist/
 extensions/*/*.tsbuildinfo
 *.tsbuildinfo
-/release/
+//release/
+/release-assets-*/
+/release-watch-*.log
 !vendor/windows-ca-certs/build/Release/
 !vendor/windows-ca-certs/build/Release/**
 
