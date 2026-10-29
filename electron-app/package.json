@@ -23,11 +23,11 @@
     "bundle": "npm run rebuild && theia build --mode production",
     "start": "theia start",
     "start:debug": "theia start --log-level=debug --remote-debugging-port=9222",
-    "package:win": "npm run bundle && electron-builder --win nsis portable --x64",
-    "package:linux": "npm run bundle && electron-builder --linux AppImage deb --x64",
-    "package:mac": "npm run bundle && electron-builder --mac dmg zip",
-    "package:mac:x64": "npm run bundle && electron-builder --mac dmg zip --x64",
-    "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64"
+    "package:win": "npm run bundle && electron-builder --win nsis portable --x64 --publish never",
+    "package:linux": "npm run bundle && electron-builder --linux AppImage deb --x64 --publish never",
+    "package:mac": "npm run bundle && electron-builder --mac dmg zip --publish never",
+    "package:mac:x64": "npm run bundle && electron-builder --mac dmg zip --x64 --publish never",
+    "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64 --publish never"
   },
   "dependencies": {
     "@laravel-studio/laravel-tools": "1.0.0",
@@ -155,5 +155,6 @@
   },
   "optionalDependencies": {
     "@vscode/windows-ca-certs": "file:../vendor/windows-ca-certs"
-  }
+  },
+  "desktopName": "laravel-studio"
 }

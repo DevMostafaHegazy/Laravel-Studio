@@ -65,6 +65,8 @@ linux:
   mimeTypes:
     - inode/directory
   vendor: Laravel Studio
+  executableName: laravel-studio
+  syncDesktopName: true
   target:
     - AppImage
     - deb

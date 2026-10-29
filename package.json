@@ -45,8 +45,8 @@
     "package:win": "npm run plugins && npm run build && npm --prefix electron-app run package:win",
     "package:linux": "npm run plugins && npm run build && npm --prefix electron-app run package:linux",
     "package:mac": "npm run plugins && npm run build && npm --prefix electron-app run package:mac",
-    "package:mac:x64": "npm run plugins && npm run build && electron-builder --projectDir electron-app --mac dmg zip --x64",
-    "package:mac:arm64": "npm run plugins && npm run build && electron-builder --projectDir electron-app --mac dmg zip --arm64"
+    "package:mac:x64": "npm run plugins && npm run build && electron-builder --projectDir electron-app --mac dmg zip --x64 --publish never",
+    "package:mac:arm64": "npm run plugins && npm run build && electron-builder --projectDir electron-app --mac dmg zip --arm64 --publish never"
   },
   "theiaPluginsDir": "plugins",
   "theiaPlugins": {
