@@ -1,0 +1,50 @@
+name: Feature request
+description: Suggest a focused improvement for Laravel Studio.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What Laravel workflow is currently slow, unclear or impossible?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the smallest useful change that would solve the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Workbench / editor
+        - Project explorer
+        - Laravel dashboard
+        - Database
+        - Containers / Sail
+        - Debugging
+        - Extensions
+        - Documentation
+        - Packaging / release
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and the roadmap first.
+          required: true
+        - label: This request can work without a paid license for the core flow.
+          required: true

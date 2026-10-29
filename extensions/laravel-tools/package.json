@@ -1,0 +1,46 @@
+{
+  "name": "@laravel-studio/laravel-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Laravel project intelligence, database browser, containers and polished product shell for Laravel Studio.",
+  "license": "MIT",
+  "main": "lib/node/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/laravel-studio-frontend-module",
+      "backend": "lib/node/laravel-studio-backend-module"
+    }
+  ],
+  "scripts": {
+    "clean": "node -e \"require('fs').rmSync('lib',{recursive:true,force:true});require('fs').rmSync('tsconfig.tsbuildinfo',{force:true})\"",
+    "build": "tsc -b",
+    "watch": "tsc -b -w --preserveWatchOutput"
+  },
+  "dependencies": {
+    "@theia/core": "1.76.0",
+    "@theia/editor": "1.76.0",
+    "@theia/filesystem": "1.76.0",
+    "@theia/monaco": "1.76.0",
+    "@theia/terminal": "1.76.0",
+    "@theia/workspace": "1.76.0",
+    "cross-spawn": "^7.0.6",
+    "mysql2": "^3.24.6",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.6",
+    "@types/node": "^24.10.0",
+    "@types/pg": "^8.15.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "~5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

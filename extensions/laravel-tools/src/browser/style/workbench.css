@@ -1,0 +1,471 @@
+/*******************************************************************************
+ * Workbench polish
+ * This layer adjusts Theia's chrome to the quieter Laravel Studio surface while
+ * leaving editor and accessibility behaviour to the upstream workbench.
+ ******************************************************************************/
+
+:root {
+    --theia-ui-font-family: var(--ls-font-ui);
+    --theia-code-font-family: var(--ls-font-mono);
+    --theia-private-menubar-height: 33px;
+    --theia-private-horizontal-tab-height: 34px;
+    --theia-statusBar-height: 23px;
+    --theia-statusBar-font-size: 11px;
+    --theia-private-sidebar-tab-width: 52px;
+    --theia-private-sidebar-icon-size: 21px;
+    --theia-private-sidebar-tab-height: 38px;
+}
+
+body.ls-product {
+    font-family: var(--ls-font-ui);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Window chrome ------------------------------------------------------------ */
+body.ls-product #theia-top-panel {
+    min-height: 33px;
+    border-bottom: 1px solid var(--ls-border);
+    background: #141518;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+body.ls-product .lm-MenuBar {
+    gap: 1px;
+    padding-left: 8px;
+    font-family: var(--ls-font-ui);
+    font-size: 11.5px;
+    letter-spacing: 0.005em;
+}
+
+body.ls-product .lm-MenuBar-item {
+    padding: 0 8px;
+    border-radius: 5px;
+    color: var(--ls-text-secondary);
+}
+
+body.ls-product .lm-MenuBar-item.lm-mod-active,
+body.ls-product .lm-MenuBar-item:hover {
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--ls-text);
+}
+
+body.ls-product .lm-Menu {
+    padding: 5px;
+    border: 1px solid var(--ls-border-strong);
+    border-radius: 9px;
+    background: #1b1d22;
+    box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.42),
+        0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+body.ls-product .lm-Menu-item {
+    border-radius: 5px;
+    color: var(--ls-text-secondary);
+    font-family: var(--ls-font-ui);
+    font-size: 11.5px;
+}
+
+body.ls-product .lm-Menu-item.lm-mod-active {
+    border: 0;
+    color: var(--ls-text);
+}
+
+body.ls-product .lm-Menu-item.lm-mod-active > div {
+    border-radius: 5px;
+    background: rgba(105, 162, 255, 0.13);
+}
+
+body.ls-product #theia-main-content-panel,
+body.ls-product #theia-main-content-panel .lm-Widget.lm-DockPanel-widget {
+    background: var(--ls-surface-2);
+}
+
+/* Main editor tabs --------------------------------------------------------- */
+body.ls-product .lm-TabBar.theia-app-centers {
+    background: #15171a;
+}
+
+body.ls-product .lm-TabBar.theia-app-centers::after {
+    background: var(--ls-border);
+}
+
+body.ls-product #theia-main-content-panel .lm-TabBar .lm-TabBar-tab {
+    height: 30px;
+    margin-top: 4px;
+    padding: 0 9px;
+    border-right: 0;
+    border-radius: 6px 6px 0 0;
+    background: transparent;
+    color: var(--ls-text-muted);
+    font-size: 11px;
+    letter-spacing: -0.002em;
+    transition: background-color 110ms var(--ls-ease), color 110ms var(--ls-ease);
+}
+
+body.ls-product #theia-main-content-panel .lm-TabBar .lm-TabBar-tab:hover {
+    background: rgba(255, 255, 255, 0.026);
+    color: var(--ls-text-secondary);
+}
+
+body.ls-product #theia-main-content-panel .lm-TabBar .lm-TabBar-tab.lm-mod-current {
+    background: var(--theia-tab-activeBackground, #1c1e23);
+    color: var(--ls-text);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.ls-product #theia-main-content-panel .lm-TabBar .lm-TabBar-tab.lm-mod-current::before {
+    position: absolute;
+    top: 0;
+    right: 9px;
+    left: 9px;
+    height: 1px;
+    border-radius: 0 0 2px 2px;
+    background: rgba(105, 162, 255, 0.62);
+    content: '';
+}
+
+body.ls-product .lm-TabBar.theia-app-centers .lm-TabBar-tabLabel {
+    font-family: var(--ls-font-ui);
+}
+
+body.ls-product .lm-TabBar.theia-app-centers .lm-TabBar-tabIcon {
+    min-height: 14px;
+    padding-right: 6px;
+    background-size: 13px;
+}
+
+body.ls-product .lm-TabBar.theia-app-centers .lm-TabBar-tab.lm-mod-closable > .lm-TabBar-tabCloseIcon {
+    padding: 1px;
+    font-size: 14px;
+    opacity: 0.62;
+}
+
+body.ls-product .lm-TabBar.theia-app-centers .lm-TabBar-tab.lm-mod-closable > .lm-TabBar-tabCloseIcon:hover {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.09);
+    opacity: 1;
+}
+
+/* Custom tab icons --------------------------------------------------------- */
+.lm-TabBar.theia-app-centers .lm-TabBar-tabIcon.ls-welcome-tab-icon,
+.lm-TabBar.theia-app-centers .lm-TabBar-tabIcon.ls-dashboard-tab-icon {
+    -webkit-mask: none;
+    mask: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-color: transparent;
+}
+
+.lm-TabBar.theia-app-centers .lm-TabBar-tabIcon.ls-welcome-tab-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23242f44'/%3E%3Cpath d='M22 17v30h24' fill='none' stroke='%23eef3ff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='46' cy='22' r='4' fill='%2369a2ff'/%3E%3C/svg%3E");
+}
+
+.lm-TabBar.theia-app-centers .lm-TabBar-tabIcon.ls-dashboard-tab-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c96a6' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m12 3 9 5-9 5-9-5 9-5Z'/%3E%3Cpath d='m3 12 9 5 9-5'/%3E%3Cpath d='m3 16 9 5 9-5'/%3E%3C/svg%3E");
+}
+
+.lm-TabBar .lm-TabBar-tabIcon.ls-terminal-tab-icon {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 17 6-6-6-6'/%3E%3Cpath d='M12 19h8'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 17 6-6-6-6'/%3E%3Cpath d='M12 19h8'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 13px;
+    mask-size: 13px;
+    background-color: currentColor;
+}
+
+/* Left activity rail ------------------------------------------------------- */
+body.ls-product .theia-app-sidebar-container {
+    background: #121316;
+    border-right: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+body.ls-product .lm-TabBar.theia-app-sides {
+    padding-top: 5px;
+    background: #121316;
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-content {
+    gap: 3px;
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tab {
+    width: 42px;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin: 0 auto;
+    border-radius: 9px;
+    color: var(--ls-text-muted);
+    transition: background-color 120ms var(--ls-ease), color 120ms var(--ls-ease);
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tab:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ls-text-secondary);
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tab.lm-mod-current {
+    background: rgba(255, 255, 255, 0.055);
+    color: #dce1e9;
+    box-shadow: none;
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tab.lm-mod-current::before {
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 0;
+    width: 2px;
+    border-radius: 0 3px 3px 0;
+    background: var(--ls-accent);
+    content: '';
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tabIcon {
+    width: 21px !important;
+    height: 21px !important;
+    color: inherit;
+}
+
+body.ls-product .lm-TabBar.theia-app-sides .lm-TabBar-tabIcon.ls-laravel-tab-icon {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 4.5v14h11' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='17.2' cy='6' r='1.6' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 4.5v14h11' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='17.2' cy='6' r='1.6' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 21px;
+    mask-size: 21px;
+    background: currentColor !important;
+}
+
+body.ls-product .theia-sidebar-menu {
+    padding-bottom: 7px;
+    background: #121316;
+}
+
+body.ls-product .theia-sidebar-menu i {
+    border-radius: 8px;
+    color: var(--ls-text-muted);
+}
+
+body.ls-product .theia-sidebar-menu i:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--ls-text-secondary);
+}
+
+/* Side panel --------------------------------------------------------------- */
+body.ls-product .theia-side-panel {
+    background: #16181c;
+}
+
+body.ls-product #theia-left-content-panel > .lm-Panel {
+    border-right: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+body.ls-product .theia-sidepanel-toolbar {
+    min-height: 33px;
+    margin: 0;
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+    background: #16181c;
+    color: var(--ls-text-secondary);
+    font-size: 10px;
+    font-weight: 620;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+body.ls-product .theia-sidepanel-toolbar .lm-TabBar-toolbar {
+    margin-right: -3px;
+}
+
+body.ls-product .theia-sidepanel-toolbar .lm-TabBar-toolbar .item {
+    border-radius: 5px;
+    color: var(--ls-text-muted);
+}
+
+body.ls-product .theia-sidepanel-toolbar .lm-TabBar-toolbar .item:hover {
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--ls-text);
+}
+
+body.ls-product .theia-side-panel .lm-TreeView,
+body.ls-product .theia-side-panel .lm-TreeView-content {
+    font-size: 11.5px;
+}
+
+/* File navigator rows ------------------------------------------------------ */
+body.ls-product .theia-TreeContainer .theia-TreeNode {
+    border-radius: 5px;
+}
+
+body.ls-product .theia-TreeContainer .theia-TreeNode:hover {
+    background: rgba(255, 255, 255, 0.032);
+}
+
+body.ls-product .theia-TreeContainer .theia-TreeNode.theia-mod-selected {
+    background: rgba(105, 162, 255, 0.105);
+    color: #e3e8f1;
+}
+
+/* Status bar --------------------------------------------------------------- */
+body.ls-product #theia-statusBar {
+    min-height: 23px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #111215;
+    color: var(--ls-text-faint);
+}
+
+body.ls-product #theia-statusBar .area .element {
+    border-radius: 4px;
+    color: var(--ls-text-faint);
+    font-family: var(--ls-font-ui);
+    font-size: 10px;
+    letter-spacing: 0.005em;
+    transition: background-color 100ms var(--ls-ease), color 100ms var(--ls-ease);
+}
+
+body.ls-product #theia-statusBar .area .element.hasCommand:hover {
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--ls-text-secondary);
+}
+
+body.ls-product #theia-statusBar .element.ls-status-laravel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 18px;
+    margin: 2px 2px;
+    padding: 0 7px;
+    border-radius: 4px;
+    background: rgba(105, 162, 255, 0.065);
+    color: #a8c3ea;
+    font-family: var(--ls-font-mono);
+    font-size: 9px;
+}
+
+body.ls-product #status-bar-remoteStatus {
+    background: transparent !important;
+    color: var(--ls-text-faint) !important;
+    min-width: 22px;
+}
+
+body.ls-product #status-bar-remoteStatus .codicon {
+    font-size: 12px;
+}
+
+body.ls-product #status-bar-remoteStatus:hover {
+    background: rgba(255, 255, 255, 0.055) !important;
+    color: var(--ls-text-secondary) !important;
+}
+
+/* Perfect-scrollbar is the scroll mechanism used by Theia widget containers. */
+body.ls-product .ls-welcome-widget .ps__rail-y,
+body.ls-product .ls-dashboard-widget .ps__rail-y,
+body.ls-product .ls-sidebar-widget .ps__rail-y {
+    width: 8px !important;
+    opacity: 0.55;
+}
+
+body.ls-product .ls-welcome-widget .ps__thumb-y,
+body.ls-product .ls-dashboard-widget .ps__thumb-y,
+body.ls-product .ls-sidebar-widget .ps__thumb-y {
+    width: 5px !important;
+    right: 2px !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-radius: 5px !important;
+}
+
+body.ls-product .ls-welcome-widget .ps__rail-y:hover,
+body.ls-product .ls-dashboard-widget .ps__rail-y:hover,
+body.ls-product .ls-sidebar-widget .ps__rail-y:hover {
+    opacity: 1;
+}
+
+body.ls-product .ls-welcome-widget .ps__thumb-y:hover,
+body.ls-product .ls-dashboard-widget .ps__thumb-y:hover,
+body.ls-product .ls-sidebar-widget .ps__thumb-y:hover {
+    background: rgba(255, 255, 255, 0.23) !important;
+}
+
+body.ls-product #theia-statusBar .element.ls-status-laravel::before {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--ls-accent);
+    content: '';
+}
+
+/* Notifications ------------------------------------------------------------ */
+body.ls-product .theia-notifications-container.theia-notification-toasts .theia-notification-list-item {
+    border: 1px solid var(--ls-border-strong);
+    border-radius: 10px;
+    background: #1b1d22;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+body.ls-product .theia-notification-list-item {
+    font-family: var(--ls-font-ui);
+}
+
+body.ls-product .theia-notification-list-item .theia-notification-message {
+    font-size: 11.5px;
+    line-height: 1.5;
+}
+
+body.ls-product .theia-notification-list-item .theia-notification-actions .theia-button {
+    border-radius: 5px;
+    font-size: 10.5px;
+}
+
+/* Progress and overlays ---------------------------------------------------- */
+body.ls-product .theia-progress-bar {
+    height: 1.5px;
+    background: var(--ls-accent);
+    opacity: 0.75;
+}
+
+body.ls-product .lm-CommandPalette,
+body.ls-product .quick-input-widget,
+body.ls-product .monaco-quick-input-widget {
+    border-radius: 10px;
+}
+
+/* Inputs and dialogs ------------------------------------------------------- */
+body.ls-product .theia-input,
+body.ls-product .theia-select,
+body.ls-product input[type='text'],
+body.ls-product input[type='search'],
+body.ls-product textarea {
+    font-family: var(--ls-font-ui);
+}
+
+body.ls-product .dialog {
+    border: 1px solid var(--ls-border-strong);
+    border-radius: 12px;
+    background: #1b1d22;
+    box-shadow: var(--ls-shadow-lg);
+}
+
+/* Toolbars ----------------------------------------------------------------- */
+body.ls-product .lm-TabBar-toolbar .lm-TabBar-toolbar-item,
+body.ls-product .lm-TabBar-toolbar .item {
+    border-radius: 5px;
+}
+
+/* Keep interactions crisp, not bouncy. */
+@media (prefers-reduced-motion: reduce) {
+    body.ls-product *,
+    body.ls-product *::before,
+    body.ls-product *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@vscode/windows-ca-certs",
+  "version": "0.3.4",
+  "description": "Prebuilt Windows system certificate reader (N-API) for the Laravel Studio desktop build.",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "build/Release/crypt32.node",
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode-windows-ca-certs.git"
+  }
+}

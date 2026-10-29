@@ -1,0 +1,159 @@
+{
+  "name": "@laravel-studio/electron-app",
+  "productName": "Laravel Studio",
+  "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Laravel Studio contributors",
+  "homepage": "https://github.com/DevMostafaHegazy/Laravel-Studio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevMostafaHegazy/Laravel-Studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DevMostafaHegazy/Laravel-Studio/issues"
+  },
+  "main": "scripts/theia-electron-main.js",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "rebuild": "theia rebuild:electron --cacheRoot ..",
+    "bundle": "npm run rebuild && theia build --mode production",
+    "start": "theia start",
+    "start:debug": "theia start --log-level=debug --remote-debugging-port=9222",
+    "package:win": "npm run bundle && electron-builder --win nsis portable --x64",
+    "package:linux": "npm run bundle && electron-builder --linux AppImage deb --x64",
+    "package:mac": "npm run bundle && electron-builder --mac dmg zip",
+    "package:mac:x64": "npm run bundle && electron-builder --mac dmg zip --x64",
+    "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64"
+  },
+  "dependencies": {
+    "@laravel-studio/laravel-tools": "1.0.0",
+    "@theia/callhierarchy": "1.76.0",
+    "@theia/console": "1.76.0",
+    "@theia/core": "1.76.0",
+    "@theia/debug": "1.76.0",
+    "@theia/editor": "1.76.0",
+    "@theia/editor-preview": "1.76.0",
+    "@theia/electron": "1.76.0",
+    "@theia/file-search": "1.76.0",
+    "@theia/filesystem": "1.76.0",
+    "@theia/keymaps": "1.76.0",
+    "@theia/markers": "1.76.0",
+    "@theia/messages": "1.76.0",
+    "@theia/mini-browser": "1.76.0",
+    "@theia/monaco": "1.76.0",
+    "@theia/navigator": "1.76.0",
+    "@theia/outline-view": "1.76.0",
+    "@theia/output": "1.76.0",
+    "@theia/plugin-ext": "1.76.0",
+    "@theia/plugin-ext-vscode": "1.76.0",
+    "@theia/preferences": "1.76.0",
+    "@theia/process": "1.76.0",
+    "@theia/property-view": "1.76.0",
+    "@theia/remote": "1.76.0",
+    "@theia/remote-wsl": "1.76.0",
+    "@theia/scm": "1.76.0",
+    "@theia/search-in-workspace": "1.76.0",
+    "@theia/task": "1.76.0",
+    "@theia/terminal": "1.76.0",
+    "@theia/test": "1.76.0",
+    "@theia/toolbar": "1.76.0",
+    "@theia/typehierarchy": "1.76.0",
+    "@theia/userstorage": "1.76.0",
+    "@theia/variable-resolver": "1.76.0",
+    "@theia/vsx-registry": "1.76.0",
+    "@theia/workspace": "1.76.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@theia/cli": "1.76.0",
+    "electron": "42.8.1",
+    "electron-builder": "26.15.3"
+  },
+  "theia": {
+    "target": "electron",
+    "frontend": {
+      "config": {
+        "applicationName": "Laravel Studio",
+        "reloadOnReconnect": true,
+        "preferences": {
+          "workbench.colorTheme": "Laravel Studio Dark",
+          "workbench.iconTheme": "vs-seti",
+          "telemetry.telemetryLevel": "off",
+          "editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', 'SF Mono', Consolas, monospace",
+          "editor.fontLigatures": true,
+          "editor.fontSize": 14,
+          "editor.lineHeight": 23,
+          "editor.minimap.enabled": false,
+          "editor.renderWhitespace": "selection",
+          "editor.smoothScrolling": true,
+          "editor.cursorSmoothCaretAnimation": "on",
+          "editor.guides.indentation": true,
+          "editor.bracketPairColorization.enabled": true,
+          "terminal.integrated.fontFamily": "'JetBrains Mono', 'Cascadia Code', Consolas, monospace",
+          "terminal.integrated.fontSize": 13,
+          "workbench.tree.indent": 16,
+          "explorer.autoReveal": true,
+          "breadcrumbs.enabled": false,
+          "window.menuBarVisibility": "classic",
+          "toolbar.showToolbar": true,
+          "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/node_modules": true
+          },
+          "search.exclude": {
+            "**/node_modules": true,
+            "**/vendor": true,
+            "**/storage/framework": true,
+            "**/public/build": true
+          },
+          "files.watcherExclude": {
+            "**/node_modules/**": true,
+            "**/vendor/**": true,
+            "**/storage/framework/**": true
+          }
+        },
+        "electron": {
+          "appUserModelId": "com.laravelstudio.ide",
+          "showWindowEarly": false,
+          "windowOptions": {
+            "width": 1440,
+            "height": 900,
+            "minWidth": 980,
+            "minHeight": 640,
+            "backgroundColor": "#111214",
+            "darkTheme": true,
+            "autoHideMenuBar": false
+          },
+          "splashScreenOptions": {
+            "content": "resources/splash.svg",
+            "width": 520,
+            "height": 360,
+            "minDuration": 650
+          }
+        }
+      }
+    },
+    "backend": {
+      "config": {
+        "frontendConnectionTimeout": -1,
+        "startupTimeout": -1,
+        "configurationFolder": ".laravel-studio",
+        "resolveSystemPlugins": false
+      }
+    },
+    "generator": {
+      "config": {
+        "preloadTemplate": "./resources/preload.html"
+      }
+    }
+  },
+  "optionalDependencies": {
+    "@vscode/windows-ca-certs": "file:../vendor/windows-ca-certs"
+  }
+}

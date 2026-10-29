@@ -1,0 +1,56 @@
+# Dependencies and generated caches
+node_modules/
+.browser_modules/
+node_modules/.cache/
+.npm/
+.cache/
+coverage/
+
+# Build output
+/build/
+electron-app/build/
+electron-app/dist/
+electron-app/lib/
+electron-app/src-gen/
+extensions/*/lib/
+extensions/*/dist/
+extensions/*/*.tsbuildinfo
+*.tsbuildinfo
+/release/
+!vendor/windows-ca-certs/build/Release/
+!vendor/windows-ca-certs/build/Release/**
+
+# Runtime and local project state
+.laravel-studio/
+.vscode-test/
+test-artifacts/
+*.log
+*.pid
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Downloaded extensions (local open-source extensions are committed)
+plugins/*
+!plugins/.gitkeep
+!plugins/laravel-studio-theme/
+!plugins/laravel-studio-theme/**
+!plugins/laravel-studio-snippets/
+!plugins/laravel-studio-snippets/**
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*~
+
+# Packaging and local credentials
+*.vsix
+*.pem
+*.p12
+*.pfx
+*.key

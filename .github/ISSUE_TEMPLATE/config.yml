@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/DevMostafaHegazy/Laravel-Studio/security/advisories/new
+    about: Report security issues privately. Do not open a public issue.
+  - name: Usage and setup questions
+    url: https://github.com/DevMostafaHegazy/Laravel-Studio/discussions
+    about: Ask setup questions and share workflows with the community.

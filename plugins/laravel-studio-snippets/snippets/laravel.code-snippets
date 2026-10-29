@@ -1,0 +1,85 @@
+{
+  "Laravel route": {
+    "prefix": "laravel-route",
+    "body": [
+      "Route::${1:get}('${2:/path}', [${3:ExampleController}::class, '${4:index}'])->name('${5:route.name}');"
+    ],
+    "description": "Define a Laravel route with a controller action and name."
+  },
+  "Laravel resource route": {
+    "prefix": "laravel-resource-route",
+    "body": [
+      "Route::resource('${1:posts}', ${2:PostController}::class);"
+    ],
+    "description": "Register a resourceful route."
+  },
+  "Laravel controller": {
+    "prefix": "laravel-controller",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Http\\Controllers;",
+      "",
+      "class ${1:ExampleController} extends Controller",
+      "{",
+      "    public function ${2:index}()",
+      "    {",
+      "        ${0:// ...}",
+      "    }",
+      "}"
+    ],
+    "description": "Create a Laravel controller class."
+  },
+  "Eloquent model": {
+    "prefix": "laravel-model",
+    "body": [
+      "<?php",
+      "",
+      "namespace App\\Models;",
+      "",
+      "use Illuminate\\Database\\Eloquent\\Model;",
+      "",
+      "class ${1:Post} extends Model",
+      "{",
+      "    protected \\$fillable = [",
+      "        ${0}",
+      "    ];",
+      "}"
+    ],
+    "description": "Create an Eloquent model."
+  },
+  "Migration schema": {
+    "prefix": "laravel-migration",
+    "body": [
+      "Schema::create('${1:posts}', function (Blueprint \\$table) {",
+      "    \\$table->id();",
+      "    ${2:\\$table->string('title');}",
+      "    \\$table->timestamps();",
+      "});"
+    ],
+    "description": "Create a migration schema block."
+  },
+  "Artisan call": {
+    "prefix": "laravel-artisan",
+    "body": [
+      "\\Illuminate\\Support\\Facades\\Artisan::call('${1:command}');"
+    ],
+    "description": "Call an Artisan command from application code."
+  },
+  "Dump and die": {
+    "prefix": "dd",
+    "body": [
+      "dd(${1:value});"
+    ],
+    "description": "Dump a value and stop execution."
+  },
+  "Request validation": {
+    "prefix": "laravel-validate",
+    "body": [
+      "\\$validated = \\$request->validate([",
+      "    '${1:name}' => ['required', 'string', 'max:255'],",
+      "]);"
+    ],
+    "description": "Validate the incoming request and store the validated data."
+  }
+}

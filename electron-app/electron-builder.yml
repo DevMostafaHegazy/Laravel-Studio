@@ -1,0 +1,90 @@
+appId: com.laravelstudio.ide
+productName: Laravel Studio
+copyright: Copyright © 2026 Laravel Studio
+electronDist: ../node_modules/electron/dist
+electronVersion: 42.8.1
+asar: true
+asarUnpack:
+  - "**/lib/backend/native/**"
+  - "**/lib/backend/shell-integrations/**"
+  - "**/lib/prebuilds/**"
+  - "**/node-pty/**"
+nodeGypRebuild: false
+npmRebuild: false
+
+directories:
+  buildResources: resources
+  output: dist
+
+files:
+  - src-gen
+  - lib
+  - resources/icons/icon-512.png
+  - resources/splash.svg
+  - resources/preload.html
+  - scripts
+  - package.json
+  - "!**/node_modules/**"
+
+extraResources:
+  - from: ../plugins
+    to: app/plugins
+    filter:
+      - "**/*"
+  - from: ../docs
+    to: docs
+    filter:
+      - "*.pdf"
+      - "*.md"
+  - from: ../FEATURES.md
+    to: docs/FEATURES.md
+  - from: ../LICENSE
+    to: LICENSE
+  - from: ../THIRD_PARTY_NOTICES.md
+    to: THIRD_PARTY_NOTICES.md
+
+win:
+  icon: resources/icons/icon.ico
+  target:
+    - nsis
+    - portable
+  artifactName: LaravelStudio-${version}-${arch}.${ext}
+
+mac:
+  icon: resources/icons/icon.icns
+  category: public.app-category.developer-tools
+  darkModeSupport: true
+  target:
+    - dmg
+    - zip
+  artifactName: LaravelStudio-${version}-${arch}.${ext}
+
+linux:
+  icon: resources/icons/512x512.png
+  category: Development
+  mimeTypes:
+    - inode/directory
+  vendor: Laravel Studio
+  target:
+    - AppImage
+    - deb
+  artifactName: LaravelStudio-${version}-${arch}.${ext}
+
+nsis:
+  menuCategory: true
+  oneClick: false
+  perMachine: false
+  installerHeaderIcon: resources/icons/icon.ico
+  installerIcon: resources/icons/icon.ico
+  uninstallerIcon: resources/icons/icon.ico
+  allowToChangeInstallationDirectory: true
+  runAfterFinish: true
+  artifactName: LaravelStudio-Setup-${version}.${ext}
+  license: ../LICENSE
+
+dmg:
+  artifactName: LaravelStudio-${version}-${arch}.${ext}
+deb:
+  artifactName: LaravelStudio-${version}-${arch}.${ext}
+appImage:
+  artifactName: LaravelStudio-${version}-${arch}.${ext}

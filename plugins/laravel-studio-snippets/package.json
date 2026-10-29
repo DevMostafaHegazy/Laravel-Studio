@@ -1,0 +1,26 @@
+{
+  "name": "laravel-studio-snippets",
+  "displayName": "Laravel Studio Snippets",
+  "description": "Laravel-focused PHP and Blade snippets for Laravel Studio.",
+  "publisher": "laravel-studio",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "php",
+        "path": "./snippets/laravel.code-snippets"
+      },
+      {
+        "language": "blade",
+        "path": "./snippets/blade.code-snippets"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "laravel-studio-theme",
+  "displayName": "Laravel Studio Theme",
+  "description": "A charcoal, JetBrains-inspired dark theme for Laravel Studio.",
+  "publisher": "laravel-studio",
+  "version": "1.0.0",
+  "license": "MIT",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Laravel Studio Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/laravel-studio-dark.json"
+      }
+    ]
+  }
+}

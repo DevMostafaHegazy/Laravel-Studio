@@ -1,0 +1,61 @@
+{
+  "Blade if": {
+    "prefix": "bladeif",
+    "body": [
+      "@if (${1:condition})",
+      "    ${2}",
+      "@endif"
+    ],
+    "description": "Blade conditional block."
+  },
+  "Blade forelse": {
+    "prefix": "bladeforelse",
+    "body": [
+      "@forelse (\\$items as \\$item)",
+      "    ${1}",
+      "@empty",
+      "    ${2:No items found.}",
+      "@endforelse"
+    ],
+    "description": "Blade loop with an empty state."
+  },
+  "Blade component": {
+    "prefix": "bladecomponent",
+    "body": [
+      "<x-${1:component} ${2::prop=\"\\$value\"} />"
+    ],
+    "description": "Render a Blade component."
+  },
+  "Blade CSRF": {
+    "prefix": "bladecsrf",
+    "body": [
+      "@csrf"
+    ],
+    "description": "Blade CSRF field."
+  },
+  "Blade method": {
+    "prefix": "blademethod",
+    "body": [
+      "@method('${1:PUT}')"
+    ],
+    "description": "Spoof an HTTP method in a Blade form."
+  },
+  "Blade auth check": {
+    "prefix": "bladeauth",
+    "body": [
+      "@auth",
+      "    ${1}",
+      "@endauth"
+    ],
+    "description": "Render content for authenticated users."
+  },
+  "Blade guest check": {
+    "prefix": "bladeguest",
+    "body": [
+      "@guest",
+      "    ${1}",
+      "@endguest"
+    ],
+    "description": "Render content for guests."
+  }
+}

@@ -1,0 +1,19 @@
+* text=auto eol=lf
+
+*.png binary
+*.ico binary
+*.icns binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.pdf binary
+*.node binary
+*.exe binary
+*.dll binary
+*.dylib binary
+*.so binary
+
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
