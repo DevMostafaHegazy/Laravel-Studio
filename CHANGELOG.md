@@ -4,6 +4,14 @@ All notable changes to Laravel Studio are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.0.2] - 2026-10-29
+
+### Changed
+
+- Skip restoring the saved bottom panel at launch. Because terminal sessions are
+  transient, this avoids recreating stale terminal widgets and waiting on dead
+  PTY handles while editor tabs, the explorer and side panels still restore.
+
 ## [1.0.1] - 2026-10-29
 
 ### Changed
@@ -46,6 +54,7 @@ All notable changes to Laravel Studio are documented here. The format follows
 - Remote SSH development through Theia.
 - Local-first privacy defaults and MIT licensing.
 
-[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.2
 [1.0.1]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.1
 [1.0.0]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.0

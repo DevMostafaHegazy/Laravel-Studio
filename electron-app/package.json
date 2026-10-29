@@ -2,7 +2,7 @@
   "name": "@laravel-studio/electron-app",
   "productName": "Laravel Studio",
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "license": "MIT",
   "author": {
@@ -33,7 +33,7 @@
     "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64 --publish never"
   },
   "dependencies": {
-    "@laravel-studio/laravel-tools": "1.0.1",
+    "@laravel-studio/laravel-tools": "1.0.2",
     "@theia/callhierarchy": "1.76.0",
     "@theia/console": "1.76.0",
     "@theia/core": "1.76.0",

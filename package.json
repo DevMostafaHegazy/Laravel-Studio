@@ -1,6 +1,6 @@
 {
   "name": "laravel-studio",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
   "license": "MIT",
