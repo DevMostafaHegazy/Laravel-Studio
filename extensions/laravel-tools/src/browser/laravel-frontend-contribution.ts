@@ -1,12 +1,15 @@
 import { inject, injectable } from '@theia/core/shared/inversify';
+import { SelectableTreeNode } from '@theia/core/lib/browser';
 import type { FrontendApplicationContribution } from '@theia/core/lib/browser/frontend-application-contribution';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { StatusBar, StatusBarAlignment } from '@theia/core/lib/browser/status-bar/status-bar-types';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import type { Disposable } from '@theia/core/lib/common/disposable';
 import { FileUri } from '@theia/core/lib/common/file-uri';
+import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
 import { FileNavigatorContribution } from '@theia/navigator/lib/browser/navigator-contribution';
+import { WorkspaceNode } from '@theia/navigator/lib/browser/navigator-tree';
 import { LaravelProjectService } from '../common/laravel-protocol';
 import { LaravelUiService } from './laravel-ui-service';
 
@@ -81,10 +84,32 @@ export class LaravelFrontendContribution implements FrontendApplicationContribut
         }
 
         await this.fileNavigator.openView({ activate: true, reveal: true });
-        await this.fileNavigator.selectFileNode(workspaceRoot.resource);
+        await this.revealWorkspaceRoot(workspaceRoot.resource);
         await this.updateStatus(root);
         if (!initial) {
             await this.notifyProject(root);
+        }
+    }
+
+    /**
+     * The navigator model is refreshed asynchronously after a workspace change.
+     * Retry briefly so the root node is selected even on the first launch.
+     */
+    protected async revealWorkspaceRoot(uri: URI): Promise<void> {
+        for (let attempt = 0; attempt < 12; attempt++) {
+            if (await this.fileNavigator.selectFileNode(uri)) {
+                return;
+            }
+            const navigator = await this.fileNavigator.widget;
+            const workspace = navigator.model.root;
+            if (WorkspaceNode.is(workspace)) {
+                const root = workspace.children[0];
+                if (root && SelectableTreeNode.is(root)) {
+                    navigator.model.selectNode(root);
+                    return;
+                }
+            }
+            await new Promise(resolve => setTimeout(resolve, 150));
         }
     }
 

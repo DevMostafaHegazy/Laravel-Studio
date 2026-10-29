@@ -15,6 +15,8 @@ editor.
 
 ![Laravel Studio icon](electron-app/resources/app-icon.svg)
 
+![Laravel Studio workbench showing the project explorer, Seti file icons and editor](docs/assets/laravel-studio-workbench.png)
+
 ## Contents
 
 - [Features](#features)
