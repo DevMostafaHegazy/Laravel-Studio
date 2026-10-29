@@ -2,7 +2,7 @@
   "name": "@laravel-studio/electron-app",
   "productName": "Laravel Studio",
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "license": "MIT",
   "author": {
@@ -33,7 +33,7 @@
     "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64 --publish never"
   },
   "dependencies": {
-    "@laravel-studio/laravel-tools": "1.0.0",
+    "@laravel-studio/laravel-tools": "1.0.1",
     "@theia/callhierarchy": "1.76.0",
     "@theia/console": "1.76.0",
     "@theia/core": "1.76.0",
@@ -99,6 +99,7 @@
           "editor.bracketPairColorization.enabled": true,
           "terminal.integrated.fontFamily": "'JetBrains Mono', 'Cascadia Code', Consolas, monospace",
           "terminal.integrated.fontSize": 13,
+          "terminal.integrated.enablePersistentSessions": false,
           "workbench.tree.indent": 16,
           "explorer.autoReveal": true,
           "breadcrumbs.enabled": false,
@@ -123,7 +124,7 @@
         },
         "electron": {
           "appUserModelId": "com.laravelstudio.ide",
-          "showWindowEarly": false,
+          "showWindowEarly": true,
           "windowOptions": {
             "width": 1440,
             "height": 900,
@@ -132,12 +133,6 @@
             "backgroundColor": "#111214",
             "darkTheme": true,
             "autoHideMenuBar": false
-          },
-          "splashScreenOptions": {
-            "content": "resources/splash.svg",
-            "width": 520,
-            "height": 360,
-            "minDuration": 650
           }
         }
       }

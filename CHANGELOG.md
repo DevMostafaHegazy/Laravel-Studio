@@ -4,28 +4,35 @@ All notable changes to Laravel Studio are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
-
-### Added
-
-- Open-source repository documentation, contribution guides and architecture
-  decision records.
-- CI checks for the first-party extension and backend integration suite.
-- Release workflow for Windows, Linux and macOS on native GitHub runners.
+## [1.0.1] - 2026-10-29
 
 ### Changed
 
-- Backend database, Docker and project scaffolding responsibilities are now
-  isolated in focused service classes behind the existing RPC contract.
-- The project explorer uses Seti file and folder icons and selects the opened
-  workspace folder.
-- The explorer follows the active editor file so the project context stays
-  visible while editing.
+- Show the main window immediately with the branded loading surface instead of
+  keeping the workbench hidden behind a separate splash window.
+- Reduced the blocking startup fade from 800 ms to 120 ms.
+- Disabled terminal-session restoration at launch so layout restoration no
+  longer waits on a previous terminal process.
+- Removed unused built-in extensions from the bundled plugin set to reduce
+  plugin-host startup work while keeping Laravel, PHP, frontend, Git and
+  extension tooling intact.
+- Added `npm run measure:startup` for repeatable start-up measurements.
+- Release workflow now publishes all native platform artifacts and checksums
+  directly from GitHub runners.
 
-### Removed
+### Fixed
 
-- The welcome page and its unused implementation files.
-- Dashboard auto-open when a project is first loaded.
+- Cross-platform packaging no longer requests an implicit GitHub publish during
+  artifact creation.
+- Corrected Linux executable/desktop metadata and Debian maintainer metadata.
+
+### Previously completed in this repository
+
+- Open-source documentation, contribution guides and architecture decision
+  records.
+- Focused backend database, Docker and project scaffolding services.
+- Seti file icons, project-root selection and active-file reveal.
+- Welcome page and automatic dashboard pop-over removed.
 
 ## [1.0.0] - 2026-10-29
 
@@ -39,5 +46,6 @@ All notable changes to Laravel Studio are documented here. The format follows
 - Remote SSH development through Theia.
 - Local-first privacy defaults and MIT licensing.
 
-[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.1
 [1.0.0]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.0

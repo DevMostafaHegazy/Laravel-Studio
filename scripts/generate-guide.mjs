@@ -9,6 +9,8 @@ const docs = path.join(root, 'docs');
 const htmlPath = path.join(docs, 'feature-guide.html');
 const pdfPath = path.join(docs, 'Laravel-Studio-Feature-Guide.pdf');
 const markdown = fs.readFileSync(path.join(root, 'FEATURES.md'), 'utf8');
+const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+const version = packageJson.version;
 const logoSvg = fs.readFileSync(path.join(root, 'electron-app', 'resources', 'app-icon.svg'), 'utf8');
 const md = new MarkdownIt({ html: false, linkify: true, typographer: true });
 const body = md.render(markdown).replace(/<h1>[^<]*<\/h1>/, '');
@@ -103,13 +105,13 @@ const html = `<!doctype html>
         <div class="cover__product">Laravel Studio</div>
         <div class="cover__tagline">A quieter place to build Laravel. Feature, setup and platform guide for the desktop studio.</div>
         <div class="cover__rule"></div>
-        <div class="cover__meta"><strong>Version 1.0.0</strong>Windows · Linux · macOS</div>
+        <div class="cover__meta"><strong>Version ${version}</strong>Windows · Linux · macOS</div>
         <div class="cover__edition">Dark by design.<br>Built on Eclipse Theia.</div>
     </section>
     <main class="doc">
         <header class="masthead">
             <div class="masthead__brand">Laravel Studio <span>· Feature &amp; Setup Guide</span></div>
-            <div class="masthead__version">v1.0.0 / 2026</div>
+            <div class="masthead__version">v${version} / 2026</div>
         </header>
         <ul class="toc">
             ${headings.map(item => `<li><b>${item.number}</b><span>${item.title}</span></li>`).join('\n')}

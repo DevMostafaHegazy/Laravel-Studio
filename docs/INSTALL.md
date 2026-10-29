@@ -4,8 +4,8 @@
 
 The ready-to-use Windows builds are produced in `electron-app/dist/`:
 
-- `LaravelStudio-Setup-1.0.0.exe` — the Windows installer.
-- `LaravelStudio-1.0.0-x64.exe` — a portable executable.
+- `LaravelStudio-Setup-<version>.exe` — the Windows installer.
+- `LaravelStudio-<version>-x64.exe` — a portable executable.
 - `win-unpacked/` — an unpacked build for diagnostics.
 
 Run the installer and choose an installation folder. The build is unsigned until
@@ -42,8 +42,8 @@ npm run package:linux
 
 Artifacts are written to `electron-app/dist/`:
 
-- `LaravelStudio-1.0.0-x86_64.AppImage`
-- `LaravelStudio-1.0.0-amd64.deb`
+- `LaravelStudio-<version>-x86_64.AppImage`
+- `LaravelStudio-<version>-amd64.deb`
 
 The included `.github/workflows/release.yml` performs the same build on Ubuntu for every
 tag or manual workflow run.
@@ -63,8 +63,8 @@ npm run package:mac
 
 Artifacts:
 
-- `LaravelStudio-1.0.0-x64.dmg` / `.zip` on Intel.
-- `LaravelStudio-1.0.0-arm64.dmg` / `.zip` on Apple Silicon.
+- `LaravelStudio-<version>-x64.dmg` / `.zip` on Intel.
+- `LaravelStudio-<version>-arm64.dmg` / `.zip` on Apple Silicon.
 
 The included GitHub Actions workflow builds both Intel and Apple Silicon targets on a
 macOS runner and uploads them as workflow artifacts.

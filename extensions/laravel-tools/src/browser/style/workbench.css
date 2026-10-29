@@ -21,6 +21,16 @@ body.ls-product {
     -webkit-font-smoothing: antialiased;
 }
 
+/**
+ * The default Theia startup veil waits on an 800ms fade before the application
+ * is considered ready. A short fade keeps the transition deliberate without
+ * adding most of a second to every launch.
+ */
+body.ls-product .theia-preload {
+    transition: opacity 120ms linear !important;
+}
+
+
 /* Window chrome ------------------------------------------------------------ */
 body.ls-product #theia-top-panel {
     min-height: 33px;

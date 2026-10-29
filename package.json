@@ -1,6 +1,6 @@
 {
   "name": "laravel-studio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
   "license": "MIT",
@@ -45,6 +45,7 @@
     "guide": "node scripts/generate-guide.mjs",
     "test": "npm run build:extension && node --test extensions/laravel-tools/lib/test/core.test.js && npm run test:backend",
     "test:backend": "node scripts/verify-backend.mjs",
+    "measure:startup": "node scripts/measure-startup.mjs",
     "package:win": "npm run plugins && npm run build && npm --prefix electron-app run package:win",
     "package:linux": "npm run plugins && npm run build && npm --prefix electron-app run package:linux",
     "package:mac": "npm run plugins && npm run build && npm --prefix electron-app run package:mac",
@@ -118,6 +119,17 @@
     "vscode.theme-solarized-dark",
     "vscode.theme-solarized-light",
     "vscode.theme-tomorrow-night-blue",
+    "vscode.bat",
+    "vscode.dotenv",
+    "vscode.debug-auto-launch",
+    "vscode.ini",
+    "vscode.less",
+    "vscode.merge-conflict",
+    "vscode.powershell",
+    "vscode.shellscript",
+    "vscode.simple-browser",
+    "ms-vscode.js-debug",
+    "ms-vscode.vscode-js-profile-table",
     "amiralizadeh9480.laravel-extra-intellisense"
   ],
   "devDependencies": {

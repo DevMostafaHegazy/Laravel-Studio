@@ -45,6 +45,15 @@ npm run package:linux
 npm run package:mac
 ```
 
+After packaging, measure launch time against the packaged application:
+
+```bash
+npm run measure:startup
+```
+
+The script reports time to the Electron endpoint, the workbench page, and the
+ready application shell. It requires a packaged build for the current platform.
+
 Native installers must be built on the matching operating system. The release
 workflow does this on GitHub-hosted runners.
 

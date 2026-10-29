@@ -1,6 +1,6 @@
 {
   "name": "@laravel-studio/laravel-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Laravel project intelligence, database browser, containers and polished product shell for Laravel Studio.",
   "license": "MIT",
