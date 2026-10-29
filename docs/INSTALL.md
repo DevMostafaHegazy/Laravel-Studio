@@ -42,7 +42,7 @@ npm run package:linux
 
 Artifacts are written to `electron-app/dist/`:
 
-- `LaravelStudio-1.0.0-x64.AppImage`
+- `LaravelStudio-1.0.0-x86_64.AppImage`
 - `LaravelStudio-1.0.0-x64.deb`
 
 The included `.github/workflows/release.yml` performs the same build on Ubuntu for every

@@ -5,7 +5,10 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "author": "Laravel Studio contributors",
+  "author": {
+    "name": "Laravel Studio contributors",
+    "email": "DevMostafaHegazy@users.noreply.github.com"
+  },
   "homepage": "https://github.com/DevMostafaHegazy/Laravel-Studio#readme",
   "repository": {
     "type": "git",

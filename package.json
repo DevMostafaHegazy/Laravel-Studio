@@ -4,7 +4,10 @@
   "private": true,
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
   "license": "MIT",
-  "author": "Laravel Studio contributors",
+  "author": {
+    "name": "Laravel Studio contributors",
+    "email": "DevMostafaHegazy@users.noreply.github.com"
+  },
   "homepage": "https://github.com/DevMostafaHegazy/Laravel-Studio#readme",
   "repository": {
     "type": "git",
