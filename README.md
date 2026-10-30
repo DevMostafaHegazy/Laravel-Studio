@@ -103,7 +103,7 @@ npm run plugins   # downloads Open VSX and built-in extensions at build time
 npm start
 ```
 
-`npm start` compiles the first-party extension and launches the Electron app.
+`npm start` compiles the first-party extension and launches the built Electron app directly. If no build output exists yet, it runs a one-time production build automatically. Subsequent launches skip the development launcher and start much faster.
 
 ## Build installers
 

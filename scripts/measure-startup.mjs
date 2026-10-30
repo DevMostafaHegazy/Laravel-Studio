@@ -39,18 +39,53 @@ async function waitForWorkbenchTarget(deadline) {
     throw new Error('Timed out waiting for the workbench window.');
 }
 
+function electronBinary() {
+    if (process.platform === 'win32') {
+        return path.join(root, 'node_modules', 'electron', 'dist', 'electron.exe');
+    }
+    if (process.platform === 'darwin') {
+        return path.join(root, 'node_modules', 'electron', 'dist', 'Electron.app', 'Contents', 'MacOS', 'Electron');
+    }
+    return path.join(root, 'node_modules', 'electron', 'dist', 'electron');
+}
+
 async function main() {
+    const developmentMode = process.env.LARAVEL_STUDIO_STARTUP_DEV ?? '';
     const application = executablePath();
-    if (!fs.existsSync(application)) {
+    if (!developmentMode && !fs.existsSync(application)) {
         throw new Error(`Packaged application not found: ${application}. Run npm run package:win (or the platform equivalent) first.`);
     }
     const started = Date.now();
     const output = [];
-    const child = spawn(application, [`--remote-debugging-port=${port}`, workspacePath()], {
-        cwd: root,
-        stdio: ['ignore', 'pipe', 'pipe'],
-        windowsHide: true
-    });
+    let child;
+    if (developmentMode === 'theia') {
+        child = spawn(process.platform === 'win32' ? 'npm.cmd' : 'npm', [
+            '--prefix', 'electron-app', 'start', '--',
+            `--remote-debugging-port=${port}`, workspacePath()
+        ], {
+            cwd: root,
+            stdio: ['ignore', 'pipe', 'pipe'],
+            windowsHide: true,
+            shell: process.platform === 'win32'
+        });
+    } else if (developmentMode === 'direct') {
+        child = spawn(electronBinary(), [
+            path.join(root, 'electron-app'),
+            `--remote-debugging-port=${port}`,
+            workspacePath()
+        ], {
+            cwd: root,
+            stdio: ['ignore', 'pipe', 'pipe'],
+            windowsHide: true,
+            env: { ...process.env, THEIA_PARENT_PID: String(process.pid) }
+        });
+    } else {
+        child = spawn(application, [`--remote-debugging-port=${port}`, workspacePath()], {
+            cwd: root,
+            stdio: ['ignore', 'pipe', 'pipe'],
+            windowsHide: true
+        });
+    }
     child.stdout.on('data', chunk => output.push(chunk.toString()));
     child.stderr.on('data', chunk => output.push(chunk.toString()));
     let browser;
@@ -85,6 +120,7 @@ async function main() {
         const explorerReady = Date.now();
         await new Promise(resolve => setTimeout(resolve, 600));
         console.log(JSON.stringify({
+            mode: developmentMode ? `development-${developmentMode}` : 'packaged',
             endpointMs: endpoint - started,
             pageMs: pageAvailable - started,
             workbenchMs: workbenchReady - started,

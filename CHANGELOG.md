@@ -4,6 +4,16 @@ All notable changes to Laravel Studio are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] - 2026-10-30
+
+### Changed
+
+- `npm start` in `electron-app` now launches the built Electron application
+  directly instead of going through Theia's development launcher. On the test
+  machine this reduced source-tree startup from roughly 36 seconds to under
+  5 seconds.
+- Keep `npm run start:theia` available as a development fallback.
+
 ## [1.0.2] - 2026-10-29
 
 ### Changed
@@ -54,7 +64,8 @@ All notable changes to Laravel Studio are documented here. The format follows
 - Remote SSH development through Theia.
 - Local-first privacy defaults and MIT licensing.
 
-[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/DevMostafaHegazy/Laravel-Studio/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.3
 [1.0.2]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.2
 [1.0.1]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.1
 [1.0.0]: https://github.com/DevMostafaHegazy/Laravel-Studio/releases/tag/v1.0.0

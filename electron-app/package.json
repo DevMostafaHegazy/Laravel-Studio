@@ -2,7 +2,7 @@
   "name": "@laravel-studio/electron-app",
   "productName": "Laravel Studio",
   "description": "A free, local-first desktop IDE for Laravel with a JetBrains-inspired workbench.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "license": "MIT",
   "author": {
@@ -24,8 +24,9 @@
   "scripts": {
     "rebuild": "theia rebuild:electron --cacheRoot ..",
     "bundle": "npm run rebuild && theia build --mode production",
-    "start": "theia start",
-    "start:debug": "theia start --log-level=debug --remote-debugging-port=9222",
+    "start": "node scripts/start-local.mjs",
+    "start:debug": "node scripts/start-local.mjs --log-level=debug --remote-debugging-port=9222",
+    "start:theia": "theia start",
     "package:win": "npm run bundle && electron-builder --win nsis portable --x64 --publish never",
     "package:linux": "npm run bundle && electron-builder --linux AppImage deb --x64 --publish never",
     "package:mac": "npm run bundle && electron-builder --mac dmg zip --publish never",
@@ -33,7 +34,7 @@
     "package:mac:arm64": "npm run bundle && electron-builder --mac dmg zip --arm64 --publish never"
   },
   "dependencies": {
-    "@laravel-studio/laravel-tools": "1.0.2",
+    "@laravel-studio/laravel-tools": "1.0.3",
     "@theia/callhierarchy": "1.76.0",
     "@theia/console": "1.76.0",
     "@theia/core": "1.76.0",

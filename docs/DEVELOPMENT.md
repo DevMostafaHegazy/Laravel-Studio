@@ -17,8 +17,11 @@ npm run plugins
 npm start
 ```
 
-`npm start` compiles the first-party Theia extension and launches the Electron
-workbench. If native Electron modules need to be rebuilt after an upgrade:
+`npm start` compiles the first-party Theia extension and launches the built
+Electron workbench directly. If build output is missing, it performs a one-time
+production build. Use `npm --prefix electron-app run start:theia` only when you
+specifically need Theia's development launcher. If native Electron modules need
+to be rebuilt after an upgrade:
 
 ```bash
 npm --prefix electron-app run rebuild
